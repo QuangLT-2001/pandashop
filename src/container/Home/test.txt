@@ -1,0 +1,262 @@
+{/* <div className=" inner">
+                    <div className="row">
+                        {productNew.map(item => {
+                            return <InnerItem location={props} item={item} key={item.id} />
+                        })}
+                    </div>
+                </div>
+                <ListProductWrapper className="list-product" status={state.status}>
+                    <ul className="list-tab">
+                        <li className="icon-tab" onClick={handleStateStatusTab}>
+                            <span className="icon-tab-item">
+
+                            </span>
+                        </li>
+                        {listTabMenu.map((item, ind) => {
+                            return <TabItem status={state.status} item={item} key={ind} ind={ind} classActive={tabs === ind ? 'active-tab' : ''} onClick={() => toggleTab(ind, item)} />
+                        })}
+                    </ul>
+                    <div className="product tabs">
+                        <Slider {...Tabs}>
+                            {data.map((item, index) => {
+                                return <ProductItem nameButton="xem thông tin" icon={item.discountContent} item={item} key={item.id} />
+                            })}
+
+                        </Slider>
+
+                    </div>
+                    <div className="product accessory">
+                        <Title name="phụ kiện khác" className="title-tab-product" />
+                        <div className="row">
+                            {_.slice(accessory, 0, 8).map(item => {
+                                return <ProductItem nameButton="xem thông tin" icon={item.discountContent} item={item} key={item.id} className="col-lg-3 col-md-6 product-item" />
+                            })}
+                        </div>
+                        <Buttons name="Xem thêm" type="more" className="more" onClick={handleToAccessory} />
+                    </div>
+                    <BannerDiscountWrapper className="banner-discount" bgImage="./assets/images/banner/banner-9.jpg">
+                        <div className="info-banner-discount">
+                            <img src="./assets/images/logo/1.png" />
+                            <div className="text-discount">
+                                <span className="text-while">
+                                    khuyến mãi
+                                </span>
+                                <span className="text-yellow">
+                                    giảm giá 50%
+                                </span>
+                            </div>
+                            <Buttons name="xem sản phẩm" type="more-product" className="btn-more" onClick={handleToAccessory} />
+                        </div>
+                    </BannerDiscountWrapper>
+                    <div className="product discount">
+                        <Title name="sản phẩm giảm giá" className="title-tab-product" />
+                        <Slider {...Tabs}>
+                            {discount.map(item => {
+                                return <ProductItem nameButton="xem thông tin" item={item} key={item.id} icon={item.discountContent} />
+                            })}
+                        </Slider>
+                    </div>
+                </ListProductWrapper> */}
+
+
+
+
+
+
+
+
+
+
+
+<div className=" body-wrapper">
+                {/* xử lý body */}
+
+                <div className="container">
+                    <BodyLeftWrapper className="body-left">
+                        <ul className="list-shopping-unit">
+                            {state.shippingUnits.map(item => <ShoppingUnitItem shoppingUnitItem={item} key={item.id} />)}
+                        </ul>
+                        <SellingProduct className="selling-product">
+                            <h3 className="title">
+                                Sản phẩm bán chạy
+                            </h3>
+                            <Slider {...SellingSlider}>
+                                <div>
+                                    {_.map(_.uniqBy(_.slice(sellingUnit, 0, 6), 'id'), item => {
+                                        return <SellingItem sellingItem={item} key={item.id} />
+                                    })}
+                                </div>
+                                <div>
+                                    {_.map(_.uniqBy(_.slice(sellingUnit, 6, 12), 'id'), item => {
+                                        return <SellingItem sellingItem={item} key={item.id} />
+                                    })}
+                                </div>
+                            </Slider>
+                        </SellingProduct>
+                        <HotlineWrapper className="hotline">
+                            <div className="hotline-content">
+                                <h3 className="title">
+                                    hotline
+                                </h3>
+                                <p className="phone">
+                                    039.2272.154 0376326810
+                                </p>
+                            </div>
+                        </HotlineWrapper>
+                    </BodyLeftWrapper>
+                    <BodyRightWrapper className="body-right">
+                        <h3 className="title-body">
+                            sản phẩm nổi bật
+                        </h3>
+                        <div className="product">
+                            <div className="slider-product">
+                                <Slider {...sliderProduct}>
+                                    {_.map(_.uniqBy(_.slice(sellingUnit, 0, 8), 'id'), item => {
+                                        return <ProductItem
+                                        nameButton="xem thông tin"
+                                        item={item}
+                                        key={item.id}
+                                        history={history}
+                                    />
+                                    })}
+                                </Slider>
+                            </div>
+                            <div className="list-product container-fluid">
+                                <div className="row">
+                                    {_.map(_.uniqBy(_.slice(sellingUnit, 0, 4), 'id'), item => {
+                                        return <ProductItem
+                                        typeHot="hot"
+                                        slice="hot"
+                                        type="border"
+                                        className="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-6"
+                                        nameButton="xem thông tin"
+                                        item={item}
+                                        key={item.id}
+                                        history={history}
+                                    />
+                                    })}
+                                    <div className="btn-to col-lg-12">
+                                        <Button onClick={handleClickToProd} name="Xem tất cả sản phẩm" />
+                                    </div>
+                                </div>
+                            </div>
+                            <ProductTabWrapper className="product-tab">
+                                <div className="header-tab">
+                                    <h3 className="title-body">
+                                        hàng mới về
+                                    </h3>
+                                    <ul className="list-tab">
+                                        {listTabMenu.map((item, ind) => {
+                                            return <TabItem
+                                                status={state.status}
+                                                item={item}
+                                                key={item.id}
+                                                ind={ind}
+                                                classActive={tabs === item.id ? 'active-tab' : ''}
+                                                onClick={() => toggleTab(item.id, item)}
+
+                                            />
+                                        })}
+                                    </ul>
+                                    <SelectOption
+                                        option={listTabMenu}
+                                        value={selectTabs}
+                                        handleSelectChange={handleSelectChange}
+                                        className="select-tabs"
+                                    />
+
+                                </div>
+                                <div className="list-product-tabs ">
+                                    {data.length ? <Slider {...productTab}>
+                                        {data.map((item, index) => {
+                                            return <ProductItem
+                                            type="border"
+                                            nameButton="xem thông tin"
+                                            icon={item.discountContent}
+                                            item={item}
+                                            key={item.id}
+                                            history={history}
+                                        />
+                                        })}
+
+                                    </Slider> : <div className="empty">
+                                        Không tìm thấy sản phẩm
+                                    </div>}
+
+                                </div>
+                                <div className="banner-intro" onClick={handleClickToIntro}>
+
+                                    <div className="intro">
+                                        <p className="intro-content">
+                                            Chào mừng quý khách đến với <span>S</span>HOPPANDA.NET.VN
+                                        </p>
+                                    </div>
+                                    <img src="/assets/images/logo/6.png" alt="logo" />
+                                </div>
+                            </ProductTabWrapper>
+                        </div>
+                    </BodyRightWrapper>
+                </div>
+
+                <BannerIntroMobileWrapper>
+                    <div className="banner-intro" onClick={handleClickToIntro}>
+
+                        <div className="intro">
+                            <p className="intro-content">
+                                Chào mừng quý khách đến với <span>S</span>HOPPANDA.NET.VN
+                            </p>
+                        </div>
+                        <img src="/assets/images/logo/6.png" alt="logo" />
+                    </div>
+                </BannerIntroMobileWrapper>
+
+
+                <PolicyWrapper className="policy-wrapper">
+                    <div className="container">
+                        <h3 className="title-body">
+                            Chính sách & hướng dẫn của SHOPPANDA
+                        </h3>
+                        <div className="row">
+                            {state.listPolicy.map(item => <PolicyItem className="col-lg-6 col-md-12" policyItem={item} key={item.id} />)}
+                        </div>
+                    </div>
+                </PolicyWrapper>
+                <CareWrapper className="care-wrapper">
+                    <div className="container">
+                        <h3 className="title-body">
+                            Có thể bạn quan tâm
+                        </h3>
+                        <p className="descript-care">
+                            Bạn có thể tìm thấy những phẩm tốt và chi phí được giảm tới 70% với những mẫu mã đa dạng và phù hợp với hầu bao cả các lứa tuổi hiện nay. Chúng tôi cam kết luôn mang đến cho các bạn những sản phẩm tốt nhất, chất lượng nhất.
+                        </p>
+                        <Slider {...productTab}>
+                            {_.map(_.uniqBy(_.slice(sellingUnit, 0, 6), 'id'), item => {
+                                return <ProductItem
+                                type="border"
+                                nameButton="xem thông tin"
+                                item={item}
+                                key={item.id}
+                                history={history}
+                            />
+                            })}
+
+                        </Slider>
+                    </div>
+                </CareWrapper>
+                <PostWrapper className="post-wrapper">
+                    <div className="container">
+                        <h3 className="title-body">
+                            Bài viết mới nhất
+                        </h3>
+                        <p className="descript-post">
+                            Blog tập hợp những bản tin, bài viết về kinh nghiệm mua sắm và chia sẻ các cung bậc cảm xúc hằng ngày. Tập hợp những mẹo vặt để cải thiện của sống của bạn tốt hơn, hoàn hảo hơn.
+                        </p>
+                        <div className="row">
+                            {_.map(_.slice(state.news, 0, 3), item => {
+                                return <PostItem className="col-lg-4 col-md-12" postItem={item} key={item.id} />
+                            })}
+                        </div>
+                        <Button name="Xem thêm bài viết" type="add" />
+                    </div>
+                </PostWrapper>
+            </div>

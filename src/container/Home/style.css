@@ -1,0 +1,66 @@
+.slick-prev {
+    left: 0 !important;
+    z-index: 6;
+    top:50%
+
+}
+.slick-prev:before  {
+    min-width: 50px;
+    min-height: 50px;
+    opacity: 1;
+    content: '\f053';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Fontawesome' !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ee4d2d;
+    font-size: 2rem;
+    transition: .3s;
+    text-shadow: 0 1px 0 #000000, 0 2px 0 #000, 0 3px 0 #000, 0 4px 0 #000, 0 5px 0 #000, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+
+}
+.slick-next {
+    right: 0;
+    top: 50%;
+    z-index: 6;
+    margin-right: 2rem;
+
+}
+.slick-next:before {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    content: '\f054';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Fontawesome' !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ee4d2d;
+    font-size: 2rem;
+    text-shadow: 0 1px 0 #000000, 0 2px 0 #000, 0 3px 0 #000, 0 4px 0 #000, 0 5px 0 #000, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+.slick-dots {
+    bottom: 0;
+}
+.slick-dots > li button:before{
+    opacity: 0;
+}
+.slick-dots > li button:after {
+    width: 12px;
+    height: 12px;
+    content: '';
+    border: 3px solid #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+}
+.slick-dots > li.slick-active button:after {
+    background: #000;
+}
